@@ -90,6 +90,7 @@ class EvilCircle extends Shape {
 
     // Event listener for controlling the evil circle with keyboard
     window.addEventListener('keydown', (e) => {
+      console.log('Key pressed:', e.key); // Debugging key press
       switch (e.key) {
         case 'a':
           this.x -= this.velX;
@@ -104,7 +105,17 @@ class EvilCircle extends Shape {
           this.y += this.velY;
           break;
       }
+      console.log(`EvilCircle position after key press: (${this.x}, ${this.y})`); // Debugging position
     });
+
+    // Event listener for controlling the evil circle with mouse
+    canvas.addEventListener('mousemove', (e) => {
+      this.x = e.clientX;
+      this.y = e.clientY;
+      console.log(`EvilCircle position after mouse move: (${this.x}, ${this.y})`); // Debugging position
+    });
+
+    console.log('Event listener added for keydown and mousemove'); // Confirming event listener setup
   }
 
   // Method to draw the evil circle on the canvas
@@ -177,6 +188,7 @@ while (balls.length < 25) {
 
 // Create the evil circle
 const evilCircle = new EvilCircle(random(0, width), random(0, height));
+console.log(`EvilCircle initial position: (${evilCircle.x}, ${evilCircle.y})`); // Initial position
 
 // Main game loop
 function loop() {
