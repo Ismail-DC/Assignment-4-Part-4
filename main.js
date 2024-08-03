@@ -13,7 +13,7 @@ function random(min, max) {
 
 // Function to generate a random RGB color
 function randomRGB() {
-  return `rgb(${random(0, 255)} ${random(0, 255)} ${random(0, 255)})`;
+  return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
 }
 
 // Shape class (base class)
